@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h2>Admin Panel</h2>
+      </div>
+
+      <nav class="sidebar-menu">
+        <ul>
+          <li>
+            <span class="icon">📊</span>
+            <span class="label">Dashboard</span>
+          </li>
+          <li>
+            <span class="icon">👥</span>
+            <span class="label">Students</span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span class="label">Attendance</span>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>&copy; 2025 Admin Dashboard</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <input type="text" placeholder="Search..." id="search-input" />
+        </div>
+
+        <div class="topbar-right">
+          <div class="notification" id="notif-bell">🔔</div>
+
+          <div class="profile" id="profile-section">
+            <div class="avatar">👤</div>
+            <div class="user-info">
+              <span class="user-name" id="display-user-name">User Name</span>
+              <span class="user-role" id="display-user-role">Admin</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard -->
+      <section class="dashboard">
+
+        <!-- Welcome -->
+        <section class="welcome">
+          <h1 id="welcome-msg">Welcome back</h1>
+          <p id="status-msg">You successfully logged in</p>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+
+          <div class="stat-card">
+            <div class="stat-icon">👨‍🎓</div>
+            <div class="stat-info">
+              <span class="stat-label">Total Students</span>
+              <span class="stat-value" id="val-total">0</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+              <span class="stat-label">Present Today</span>
+              <span class="stat-value" id="val-present">0</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">❌</div>
+            <div class="stat-info">
+              <span class="stat-label">Absent Today</span>
+              <span class="stat-value" id="val-absent">0</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">📚</div>
+            <div class="stat-info">
+              <span class="stat-label">Active Courses</span>
+              <span class="stat-value" id="val-courses">0</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Chart + Activity -->
+        <section class="dashboard-row">
+          <div class="attendance-chart" id="chart-area">
+            <h3>Attendance System</h3>
+            <p id="attendance-feedback">Manage daily student attendance below.</p>
+          </div>
+          <div class="recent-activity">
+            <h3>System Status</h3>
+            <p id="activity-log">System running nominally.</p>
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+          <div class="action-card">
+            <h4>Update Profile</h4>
+            <button id="btn-update-profile">Click Here</button>
+          </div>
+          <div class="action-card">
+            <h4>Mark Attendance</h4>
+            <button id="btn-mark-attendance">Click Here</button>
+          </div>
+          <div class="action-card">
+            <h4>View Reports</h4>
+            <button id="btn-view-reports">Click Here</button>
+          </div>
+        </section>
+        
+        <table border="1" align="center" style="margin-top: 20px; width: 100%;">
+          <tr>
+            <th>Subject</th>
+            <th>Total Classes</th>
+            <th>Classes Attended</th>
+          </tr>
+          <tr>
+            <td>Web Technologies</td>
+            <td>7</td>
+            <td>5</td>
+          </tr>
+        </table>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="javascript(lab4).js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Student Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero { text-align: center; padding: 120px 20px; }
+    .hero h1 { font-size: 56px; font-weight: 800; margin-bottom: 24px; background: linear-gradient(to right, #818CF8, #C084FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto; line-height: 1.6; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; }
+    
+    .btn-outline { border: 2px solid var(--border); background: transparent; color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; display: inline-block; text-decoration: none; }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); }
+
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 10%; margin-bottom: 80px; }
+    .feature-card { padding: 32px; text-align: left; }
+    .feature-icon { font-size: 36px; margin-bottom: 20px; background: rgba(99, 102, 241, 0.1); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 16px; }
+    .feature-card h3 { font-size: 20px; margin-bottom: 12px; color: #fff; text-shadow: none; font-weight: 600; }
+    .feature-card p { color: var(--text-muted); line-height: 1.6; font-size: 15px; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">✨ SSMS</div>
+    <div class="nav-links">
+      <a href="index.html">Platform</a>
+      <a href="#features">Features</a>
+      <a href="login.php">Login</a>
+      <a href="register.php" class="btn btn-primary" style="color:#fff; padding: 8px 16px; font-size: 14px;">Start for Free</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero animate-slide-up">
+    <h1>The Future of Education Administration.</h1>
+    <p>A beautifully designed, intelligent platform unifying students, faculty, and systems into one seamless digital campus experience.</p>
+    <div class="hero-btns">
+      <a href="register.php" class="btn btn-primary">Get Started</a>
+      <a href="#features" class="btn-outline">Explore Features</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features-grid">
+    <div class="feature-card glass-panel animate-slide-up" style="animation-delay:0.1s">
+      <div class="feature-icon" style="color:#818CF8;">👥</div>
+      <h3>Role-based Dashboards</h3>
+      <p>Dedicated dynamic interfaces crafted specifically for administrators and students, surfacing only what matters most.</p>
+    </div>
+    <div class="feature-card glass-panel animate-slide-up" style="animation-delay:0.2s">
+      <div class="feature-icon" style="color:#34D399; background:rgba(16,185,129,0.1);">🔒</div>
+      <h3>Bank-Grade Security</h3>
+      <p>Encrypted password hashing and robust session management ensure academic data remains untampered and private.</p>
+    </div>
+    <div class="feature-card glass-panel animate-slide-up" style="animation-delay:0.3s">
+      <div class="feature-icon" style="color:#C084FC; background:rgba(168,85,247,0.1);">⚡</div>
+      <h3>Real-time Analytics</h3>
+      <p>Instantly track attendance, grades, and system activity with zero-latency visual charts and performance summaries.</p>
+    </div>
+  </section>
+
+</body>
+</html>
