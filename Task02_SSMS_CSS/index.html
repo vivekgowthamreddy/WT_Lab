@@ -1,244 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Smart Student Management System - Task 2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="vivek" />
-  <!-- Google Fonts for Professional Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Smart Student Management System - SSMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="vivek">
+  <!-- Google Fonts for professional typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- FIXED NAVBAR -->
+  <!-- Navigation Bar (Flexbox) -->
   <header class="navbar">
-    <div class="logo"><i class="fa-solid fa-graduation-cap"></i> SSMS</div>
-    <nav>
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#features" class="nav-link">Features</a>
-      <a href="#forms" class="nav-link active">Portals</a>
-      <a href="#" class="btn secondary">Login</a>
-      <a href="#" class="btn primary">Register</a>
+    <div class="logo">👩🏻‍💻SSMS Portal</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#forms">Forms</a>
+      <a href="login.html" class="btn btn-secondary">Login</a>
+      <a href="register.html" class="btn btn-primary">Register</a>
     </nav>
-    <div class="mobile-menu">
-      <i class="fa-solid fa-bars"></i>
-    </div>
   </header>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <h1>Smart Student Management System</h1>
-        <p>AI-powered attendance and administration platform for modern campuses. Experience the future of education management.</p>
-        <div class="hero-buttons">
-          <a href="#forms" class="btn primary">Explore Portals <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="#features" class="btn secondary">Learn More</a>
-        </div>
-      </div>
-      <div class="hero-graphic">
-        <div class="glass-orb"></div>
-      </div>
-    </section>
+  <!-- Hero Banner -->
+  <section class="hero" id="home">
+    <h1>Smart Student Management System</h1>
+    <p>AI-powered attendance and administration platform designed for modern college campuses.</p>
+    <div class="hero-buttons">
+      <a href="#forms" class="btn btn-primary">Try the Portals</a>
+      <a href="#features" class="btn btn-secondary">Learn More</a>
+    </div>
+  </section>
 
-    <!-- CORE FEATURES -->
-    <section class="features" id="features">
-      <div class="section-header">
-        <h2 class="section-title">Key Features</h2>
-        <p class="section-subtitle">Everything you need to manage your institution efficiently</p>
+  <!-- Core Features -->
+  <section class="features-container" id="features">
+    <h2>Academic Features</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <h3>Smart Attendance</h3>
+        <p>Keep track of student presence automatically.</p>
       </div>
-      <div class="images features-container">
-        <!-- Reusing Core HTML Structure for Features -->
-        <div class="feature-card">
-           <div class="icon-box"><i class="fa-solid fa-user-check"></i></div>
-           <h3>Smart Attendance</h3>
-           <p>Automated tracking with high accuracy.</p>
-        </div>
-        <div class="feature-card">
-           <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
-           <h3>Performance Tracking</h3>
-           <p>Real-time analytics and insights.</p>
-        </div>
-        <div class="feature-card">
-           <div class="icon-box"><i class="fa-solid fa-file-invoice"></i></div>
-           <h3>Detailed Reports</h3>
-           <p>Comprehensive academic documentation.</p>
-        </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Performance Tracking</h3>
+        <p>Real-time analytics and insights.</p>
       </div>
-    </section>
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h3>Detailed Reports</h3>
+        <p>Generate accurate campus reports instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-Time Forms Design (Lab 2 Mandatory) -->
+  <section class="forms-section" id="forms">
+    <h2>College Administrative Forms</h2>
     
-    <section class="about_project">
-      <div class="about-container">
-        <h2>About the Project</h2>
-        <p>
-          Smart Student Management System is an intelligent, web-based platform designed to simplify and modernize academic administration. It centralizes student data, attendance, and institutional processes into a secure and user-friendly system. By integrating automation and future-ready AI capabilities, the platform reduces manual effort, improves accuracy, and enhances transparency for students, faculty, and administrators. Built with scalability and performance in mind, it aims to create a smarter, more efficient campus ecosystem.
-        </p>
+    <div class="form-grid-layout">
+      
+      <!-- Form 1: Student Login -->
+      <div class="form-box">
+        <h3>🔒 Student Login Portal</h3>
+        <p class="form-desc">Secure access to your academic account.</p>
+        <form>
+          <div class="form-group">
+            <label for="student_id">Student ID</label>
+            <input type="text" id="student_id" placeholder="e.g. 22CS045" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me on this computer</label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+        </form>
       </div>
-    </section>
 
-    <!-- LAB 2: ADVANCED FORMS SECTION -->
-    <section id="forms" class="forms-section">
-      <div class="section-header">
-        <h2 class="section-title">Institutional Portals</h2>
-        <p class="section-subtitle">Navigate through our modern, real-time administrative forms</p>
-      </div>
-
-      <!-- Grid Layout for Dashboard Cards -->
-      <div class="forms-dashboard">
-        
-        <!-- Form 1: Login Portal -->
-        <div class="form-wrapper form-card">
-          <div class="form-header">
-            <div class="form-icon blue"><i class="fa-solid fa-right-to-bracket"></i></div>
-            <div class="form-title-group">
-              <h3>Student Login</h3>
-              <p>Secure portal access</p>
+      <!-- Form 2: Course Enrollment Form -->
+      <div class="form-box">
+        <h3>📚 Course Enrollment Request</h3>
+        <p class="form-desc">Register for new semester subjects quickly.</p>
+        <form>
+          <div class="form-group">
+            <label for="course_name">Select Subject</label>
+            <select id="course_name" required>
+              <option value="">-- Choose Subject --</option>
+              <option value="css">Advanced CSS</option>
+              <option value="js">Web Technologies</option>
+              <option value="db">Database Management</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Enrollment Type</label>
+            <div class="radio-group">
+              <label><input type="radio" name="enroll_type" value="core" checked> Core Subject</label>
+              <label><input type="radio" name="enroll_type" value="elective"> Elective</label>
             </div>
           </div>
-          <form class="real-form login-form">
-            <div class="form-group">
-              <label for="studentId">Student ID</label>
-              <div class="input-icon-wrap">
-                <i class="fa-solid fa-id-card input-icon"></i>
-                <input type="text" id="studentId" placeholder="e.g. 22CS045" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <div class="input-icon-wrap">
-                <i class="fa-solid fa-lock input-icon"></i>
-                <input type="password" id="password" placeholder="••••••••" required>
-              </div>
-            </div>
-            <div class="form-options form-flex">
-              <label class="custom-checkbox">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                <span class="label-text">Remember me</span>
-              </label>
-              <a href="#" class="form-link">Forgot password?</a>
-            </div>
-            <button type="submit" class="btn primary full-width">Sign In</button>
-          </form>
-        </div>
-
-        <!-- Form 2: Course Enrollment -->
-        <div class="form-wrapper form-card">
-          <div class="form-header">
-            <div class="form-icon purple"><i class="fa-solid fa-book-open"></i></div>
-            <div class="form-title-group">
-              <h3>Course Enrollment</h3>
-              <p>Register for electives</p>
-            </div>
+          <!-- Error State Demonstration (UI only) -->
+          <div class="form-group">
+            <label for="prerequisite">Prerequisite Subject Code</label>
+            <input type="text" id="prerequisite" class="input-error" value="INVALID-CODE">
+            <span class="error-message">Error: This subject code doesn't exist.</span>
           </div>
-          <form class="real-form enroll-form" novalidate>
-            <div class="form-group">
-              <label for="course-select">Select Course</label>
-              <div class="select-wrapper">
-                <select id="course-select" required>
-                  <option value="" disabled selected>Choose a course...</option>
-                  <option value="AI">Artificial Intelligence (CS401)</option>
-                  <option value="ML">Machine Learning (CS402)</option>
-                  <option value="WT">Web Technology (CS403)</option>
-                </select>
-                <i class="fa-solid fa-chevron-down select-icon"></i>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Enrollment Type</label>
-              <div class="custom-radio-group">
-                <label class="custom-radio">
-                  <input type="radio" name="enrollType" value="core" checked>
-                  <span class="radioblock"></span>
-                  <span class="label-text">Core</span>
-                </label>
-                <label class="custom-radio">
-                  <input type="radio" name="enrollType" value="elective">
-                  <span class="radioblock"></span>
-                  <span class="label-text">Elective</span>
-                </label>
-              </div>
-            </div>
-            <!-- UI Visual Error State Demo -->
-            <div class="form-group error-state">
-              <label for="prereq">Prerequisite Code</label>
-              <div class="input-icon-wrap">
-                <i class="fa-regular fa-file-code input-icon"></i>
-                <input type="text" id="prereq" class="error-input" value="CS201" required>
-              </div>
-              <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Invalid course code entered.</span>
-            </div>
-            <button type="submit" class="btn primary full-width disabled">Enroll Now</button>
-          </form>
-        </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enrollment</button>
+        </form>
+      </div>
 
-        <!-- Form 3: Leave Request (CSS Grid Form) -->
-        <div class="form-wrapper form-card span-2">
-          <div class="form-header">
-            <div class="form-icon green"><i class="fa-regular fa-calendar-minus"></i></div>
-            <div class="form-title-group">
-              <h3>Leave Request Form</h3>
-              <p>Apply for absence permission via HOD</p>
-            </div>
+      <!-- Form 3: Leave Request (Full width via Grid) -->
+      <div class="form-box" style="grid-column: 1 / -1;">
+        <h3>✍️ Leave Permission Form</h3>
+        <p class="form-desc">Apply for official absence digitally.</p>
+        <form style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="start_date">Start Date</label>
+            <input type="date" id="start_date" required>
           </div>
-          <form class="real-form leave-form">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="leaveDateFrom">Start Date</label>
-                <input type="date" id="leaveDateFrom" required class="modern-input">
-              </div>
-              <div class="form-group">
-                <label for="leaveDateTo">End Date</label>
-                <input type="date" id="leaveDateTo" required class="modern-input">
-              </div>
-              <div class="form-group full-width-grid">
-                <label for="leaveReason">Reason for Leave</label>
-                <textarea id="leaveReason" rows="3" placeholder="Explain your reason briefly..." required class="modern-textarea"></textarea>
-              </div>
-              <div class="form-group full-width-grid">
-                <label for="documentProof" class="file-upload-label">Medical Certificate / Proof (Optional)</label>
-                <div class="file-upload-wrapper">
-                  <input type="file" id="documentProof" class="file-input">
-                  <div class="file-upload-ui">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <span>Drag and drop or click to browse</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-actions mt-4 flex-end">
-              <button type="button" class="btn secondary">Cancel</button>
-              <button type="submit" class="btn primary">Submit Request</button>
-            </div>
-          </form>
-        </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="end_date">End Date</label>
+            <input type="date" id="end_date" required>
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="reason">Reason For Leave</label>
+            <textarea id="reason" rows="4" placeholder="Briefly explain your absence..." required></textarea>
+          </div>
+          <div style="grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 10px;">
+            <button type="reset" class="btn btn-secondary">Clear</button>
+            <button type="submit" class="btn btn-primary">Apply for Leave</button>
+          </div>
+        </form>
+      </div>
 
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <div class="logo"><i class="fa-solid fa-graduation-cap"></i> SSMS</div>
-        <p>Empowering academic institutions with intelligent digital solutions.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Help Center</a>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Smart Student Management System. Lab-2 Task Completed.</p>
-    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Smart Student Management System. Designed for Web Technology Lab 2.</p>
   </footer>
 
 </body>

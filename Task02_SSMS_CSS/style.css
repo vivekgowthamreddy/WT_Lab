@@ -1,112 +1,335 @@
+/* Student Management System - Advanced CSS - Lab Task 2 */
+
+/* --- 1. Core Styling & Theme Consistency --- */
 :root {
-  --bg: #f8fafc;
-  --surface: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --primary: #4f46e5;
-  --primary-glow: rgba(79, 70, 229, 0.15);
-  --error: #ef4444;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow: 0 4px 6px -1px rgb(0 0 0/0.05);
-  --shadow-hover: 0 20px 25px -5px rgb(0 0 0/0.1);
-  --radius: 12px;
+  --main-blue: #2c3e50;
+  --light-blue: #34495e;
+  --accent-blue: #3498db;
+  --bg-color: #f4f7f6;
+  --white: #ffffff;
+  --text-dark: #333333;
+  --text-light: #777777;
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-p { color: var(--muted); }
+/* --- 2. CSS Box Model --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Layout stability */
+  font-family: 'Inter', sans-serif; /* Google Fonts for professional typography */
+}
 
-/* --- NAVBAR (Glassmorphism) --- */
-.navbar { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); box-shadow: var(--shadow); }
-.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); display: flex; gap: 0.5rem; align-items: center; }
-.navbar nav { display: flex; gap: 2rem; align-items: center; }
-.nav-link { text-decoration: none; color: var(--muted); font-weight: 500; transition: var(--transition); }
-.nav-link:hover, .nav-link.active { color: var(--primary); }
-.mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
 
-/* --- BUTTONS (Hover Elevation) --- */
-.btn { border: none; outline: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition); text-decoration: none; }
-.btn.primary { background: var(--primary); color: #fff; box-shadow: var(--shadow); }
-.btn.primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); filter: brightness(1.1); }
-.btn.secondary { background: #e0e7ff; color: var(--primary); }
-.btn.secondary:hover { background: #c7d2fe; }
-.btn.disabled { opacity: 0.6; pointer-events: none; }
+h1, h2, h3 {
+  color: var(--main-blue);
+}
 
-/* --- HERO (Gradients) --- */
-.hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem 5%; background: radial-gradient(circle at 50% 0%, #e0e7ff 0%, transparent 60%); }
-.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); background: linear-gradient(135deg, var(--text), var(--primary)); -webkit-background-clip: text; color: transparent; margin-bottom: 1rem; }
-.hero-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }
+p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
 
-/* --- SECTIONS & GRIDS --- */
-.features, .forms-section, .about_project { max-width: 1200px; margin: 0 auto; padding: 5rem 5%; }
-.section-header { text-align: center; margin-bottom: 3rem; }
-.features-container, .forms-dashboard { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.span-2 { grid-column: span 2; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.full-width-grid { grid-column: 1 / -1; }
-.full-width { width: 100%; }
+/* --- 3. Navigation & Positioning Techniques --- */
+.navbar {
+  position: sticky; /* Sticky Header */
+  top: 0;
+  background-color: var(--white);
+  padding: 15px 5%;
+  display: flex; /* Flexbox for Layout Systems */
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
-/* --- CARDS (Micro-Animations & Shadows) --- */
-.feature-card, .form-card { background: var(--surface); padding: 2.5rem; border-radius: var(--radius); border: 1px solid #e2e8f0; box-shadow: var(--shadow); transition: var(--transition); text-align: left; }
-.feature-card:hover, .form-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: #cbd5e1; }
-.feature-card { text-align: center; }
-.icon-box { background: #e0e7ff; color: var(--primary); font-size: 1.8rem; width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: var(--transition); }
-.feature-card:hover .icon-box { background: var(--primary); color: #fff; transform: scale(1.1) rotate(8deg); }
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--main-blue);
+}
 
-/* --- FORM COMPONENTS --- */
-.form-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9; }
-.form-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
-.form-icon.blue { background: #eff6ff; color: #3b82f6; }
-.form-icon.purple { background: #f5f3ff; color: #8b5cf6; }
-.form-icon.green { background: #ecfdf5; color: #10b981; }
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
 
-.form-group { margin-bottom: 1.5rem; }
-.form-group label { display: block; font-weight: 500; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--light-blue);
+  font-weight: 500;
+  transition: 0.3s ease;
+}
 
-/* INPUT STYLES (Focus Glows) */
-.real-form input, .real-form select, .real-form textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; background: var(--surface); transition: var(--transition); outline: none; }
-.input-icon-wrap { position: relative; }
-.input-icon-wrap .input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); transition: var(--transition); }
-.input-icon-wrap input { padding-left: 2.8rem; }
+.nav-links a:hover {
+  color: var(--accent-blue);
+}
 
-.real-form input:focus, .real-form select:focus, .real-form textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-glow); }
-.real-form input:focus ~ .input-icon { color: var(--primary); }
-.select-wrapper { position: relative; }
-.select-wrapper .select-icon { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+/* --- 4. Effects (Hover, Transitions, Shadows) --- */
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-/* Native Forms UI Magic (Modern Checkboxes) */
-.checkmark, .radioblock { display: none; } /* Overriding custom dummy spans */
-.custom-checkbox input, .custom-radio input { opacity: 1; position: static; width: 1.2rem; height: 1.2rem; margin-right: 0.5rem; accent-color: var(--primary); cursor: pointer; }
-.custom-checkbox, .custom-radio { display: flex; align-items: center; font-size: 0.9rem; cursor: pointer; }
-.custom-radio-group, .form-flex { display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; }
-.form-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: var(--white);
+}
 
-/* ERROR STATES & FILE UPLOADS */
-.error-state label, .error-msg { color: var(--error); font-size: 0.85rem; margin-top: 0.5rem; display: block; }
-.error-input { border-color: var(--error) !important; background: #fef2f2 !important; }
-.error-input:focus { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important; }
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
 
-.file-upload-wrapper { position: relative; width: 100%; }
-.file-upload-wrapper input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 10; }
-.file-upload-ui { border: 2px dashed #cbd5e1; padding: 2rem; border-radius: var(--radius); text-align: center; color: var(--muted); transition: var(--transition); background: var(--bg); }
-.file-upload-ui i { font-size: 2rem; margin-bottom: 0.5rem; display: block; color: var(--muted); }
-.file-upload-wrapper:hover .file-upload-ui { border-color: var(--primary); background: #e0e7ff; color: var(--primary); }
-.file-upload-wrapper:hover .file-upload-ui i { color: var(--primary); }
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent-blue);
+  color: var(--accent-blue);
+}
 
-/* --- FOOTER --- */
-.site-footer { background: var(--surface); padding: 3rem 5%; text-align: center; border-top: 1px solid #e2e8f0; }
-.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0; }
-.footer-links a { color: var(--muted); text-decoration: none; transition: var(--transition); }
-.footer-links a:hover { color: var(--primary); }
+.btn-secondary:hover {
+  background-color: var(--accent-blue);
+  color: var(--white);
+}
 
-/* --- RESPONSIVE OPTIMIZATIONS --- */
+/* --- 5. Page Layouts (Hero Section) --- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Gradients */
+  min-height: 400px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Core Features section */
+.features-container {
+  padding: 60px 5%;
+  text-align: center;
+}
+
+.features-container h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+/* CSS Grid implementation */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Box shadows */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover { /* Hover effects on cards */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+/* --- 6. Real-Time Forms Styling (Mandatory) --- */
+.forms-section {
+  padding: 60px 5%;
+  background-color: var(--white);
+}
+
+.forms-section > h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+/* Grid Layout for Forms */
+.form-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.form-box {
+  background-color: var(--bg-color);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.form-box h3 {
+  color: var(--main-blue);
+  margin-bottom: 5px;
+}
+
+.form-box p.form-desc {
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Input Styles */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+/* Visual Focus and Hover States */
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #999;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.4); /* Glow effect on focus */
+}
+
+/* Checkboxes and Radios */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.radio-group label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.checkbox-group label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Error warning states (UI only) */
+.input-error {
+  border-color: var(--error-color) !important;
+  background-color: #fdf5f5;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* --- 7. Footer --- */
+footer {
+  background-color: var(--main-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* --- 8. Responsive Design (Mandatory Media Queries) --- */
+
+/* Tablet Layout */
 @media (max-width: 900px) {
-  .span-2 { grid-column: span 1; }
+  .grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .form-grid-layout {
+    grid-template-columns: 1fr;
+  }
 }
-@media (max-width: 768px) {
-  .navbar nav { display: none; }
-  .mobile-menu { display: block; }
-  .form-grid { grid-template-columns: 1fr; }
-  .hero-buttons { flex-direction: column; }
-  .hero-buttons .btn { width: 100%; }
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .form-box {
+    padding: 20px;
+  }
 }
