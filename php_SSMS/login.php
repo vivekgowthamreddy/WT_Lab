@@ -88,6 +88,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Sign In</button>
       </form>
+      
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border);">
+      <a href="google_login.php" class="btn" style="width:100%; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border); text-align:center; display:block; padding:10px; font-weight:500;">
+        <img src="https://www.google.com/favicon.ico" style="width:16px; vertical-align:middle; margin-right:10px;">Sign in with Google
+      </a>
       <div style="margin-top:24px; font-size:14px; color:var(--text-muted);">
         Don't have an account? <a href="register.php" style="color:var(--primary); font-weight:600;">Register here</a>
       </div>
