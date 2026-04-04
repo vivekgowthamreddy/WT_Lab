@@ -1,0 +1,852 @@
+/* ==========================================================================
+   LAB-2: ADVANCED CSS STYLING & PROFESSIONAL UI
+   Student Management System Portal
+   ========================================================================== */
+
+/* --- 1. CORE STYLING & CSS VARIABLES --- */
+:root {
+  /* Brand Colors - Realistic Email/Portal Theme */
+  --primary: #4338ca;         /* Indigo */
+  --primary-hover: #3730a3;
+  --secondary: #e0e7ff;       /* Light indigo */
+  --secondary-text: #4338ca;
+  --accent: #0ea5e9;          /* Sky Blue */
+
+  /* UI Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --error-bg: #fef2f2;
+  --surface: #ffffff;
+  --background: #f8fafc;      /* Light gray/blue app background */
+
+  /* Text Colors */
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* Shadows - Modern Elevation */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-hover: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --glow: 0 0 0 4px rgba(67, 56, 202, 0.2);
+  --glow-error: 0 0 0 4px rgba(239, 68, 68, 0.2);
+
+  /* Layout & Box Model Tokens */
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --container-width: 1200px;
+}
+
+/* --- 2. CSS BOX MODEL & RESET --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Layout stability */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for sticky header */
+}
+
+/* --- 3. TYPOGRAPHY --- */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-muted);
+}
+
+/* --- 4. POSITIONING & NAVIGATION (Flexbox) --- */
+.navbar {
+  position: sticky;        /* Sticky fixed header */
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85); /* Glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+/* Hover effects for links */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.mobile-menu {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+  outline: none;
+}
+
+.btn.primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn.primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px); /* Transform effect */
+}
+
+.btn.secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+}
+
+.btn.secondary:hover {
+  background-color: #c7d2fe;
+}
+
+.btn.disabled, .btn:disabled {
+  background-color: #e2e8f0;
+  color: var(--text-light);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mt-4 { margin-top: 1.5rem; }
+.flex-end { justify-content: flex-end; }
+
+
+/* --- 5. LAYOUT SYSTEMS & EFFECTS --- */
+
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 4rem 5%;
+  position: relative;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text-main), var(--primary)); /* Gradient Text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Background gradient decoration */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--secondary) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+/* Features Component (Grid Layout) */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.features {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 5rem 5%;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Feature Cards (Box Model & Hover Effects) */
+.feature-card {
+  background: var(--surface);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--secondary);
+}
+
+.icon-box {
+  width: 70px;
+  height: 70px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 1.8rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: var(--transition);
+}
+
+.feature-card:hover .icon-box {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* About Section */
+.about_project {
+  background: var(--text-main);
+  color: var(--surface);
+  padding: 5rem 5%;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-container h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.about-container p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+
+/* --- 6. REAL-TIME FORMS DESIGN (Mandatory) --- */
+
+.forms-section {
+  padding: 6rem 5%;
+  background: #f1f5f9;
+}
+
+/* Form Dashboard Grid */
+.forms-dashboard {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Form Container */
+.form-card {
+  background: var(--surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+  transition: var(--transition);
+}
+
+.form-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+/* Form Headers */
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.form-icon.blue { background: #eff6ff; color: #3b82f6; }
+.form-icon.purple { background: #f5f3ff; color: #8b5cf6; }
+.form-icon.green { background: #ecfdf5; color: #10b981; }
+
+.form-title-group h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.form-title-group p {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Standard Input Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+/* Input Fields */
+.input-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.real-form input[type="text"],
+.real-form input[type="password"],
+.real-form input[type="email"],
+.real-form input[type="number"],
+.real-form input[type="date"],
+.modern-input,
+.modern-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--border-radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: var(--surface);
+  transition: var(--transition);
+}
+
+/* Support Input Icons padding */
+.input-icon-wrap input {
+  padding-left: 2.8rem;
+}
+
+/* Focus and Hover states */
+.real-form input:hover,
+.real-form select:hover,
+.modern-textarea:hover {
+  border-color: #94a3b8;
+}
+
+.real-form input:focus,
+.real-form select:focus,
+.modern-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--glow);
+}
+
+.input-icon-wrap input:focus + .input-icon,
+.input-icon-wrap input:focus ~ .input-icon {
+  color: var(--primary);
+}
+
+.real-form input::placeholder,
+.modern-textarea::placeholder {
+  color: var(--text-light);
+}
+
+/* Custom Select Dropdown */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--border-radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: var(--surface);
+  appearance: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.select-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Real-world Form Layout Extensions */
+.form-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.form-link:hover {
+  text-decoration: underline;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 18px;
+  width: 18px;
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+  border-color: var(--primary);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkmark:after {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: white;
+  font-size: 10px;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Custom Radio Buttons */
+.custom-radio-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radioblock {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.custom-radio:hover input ~ .radioblock {
+  border-color: var(--primary);
+}
+
+.custom-radio input:checked ~ .radioblock {
+  border-color: var(--primary);
+}
+
+.radioblock:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.custom-radio input:checked ~ .radioblock:after {
+  display: block;
+}
+
+/* Error States (UI Representation only) */
+.error-state label {
+  color: var(--error);
+}
+
+.error-input {
+  border-color: var(--error) !important;
+  background-color: var(--error-bg) !important;
+}
+
+.error-input:focus {
+  box-shadow: var(--glow-error) !important;
+}
+
+.error-msg {
+  display: inline-block;
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.error-state .input-icon {
+  color: var(--error) !important;
+}
+
+/* CSS Grid Form Layout (Leave Request Form) */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.full-width-grid {
+  grid-column: 1 / -1;
+}
+
+/* File Upload UI */
+.file-upload-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.file-upload-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.file-upload-ui {
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--border-radius-md);
+  padding: 2rem;
+  text-align: center;
+  background: #f8fafc;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.file-upload-ui i {
+  font-size: 2rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.file-upload-wrapper:hover .file-upload-ui {
+  border-color: var(--primary);
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.file-upload-wrapper:hover .file-upload-ui i {
+  color: var(--primary);
+}
+
+/* Form Actions Area */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+
+/* --- 7. FOOTER --- */
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid #e2e8f0;
+  padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+
+/* --- 8. RESPONSIVE DESIGN (Media Queries) --- */
+
+/* Tablet Optimization */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 6rem;
+  }
+  
+  .hero::before {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .span-2 {
+    grid-column: span 1;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .navbar nav {
+    display: none; /* Mobile menu hidden by default */
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-brand {
+    margin: 0 auto;
+  }
+  
+  .footer-links {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}

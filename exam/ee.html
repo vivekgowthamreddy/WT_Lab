@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Header */
+        header {
+            border: 2px solid black;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            height: 300px;
+        }
+
+        /* Navigation */
+        nav {
+            width: 20%;
+            border: 2px solid black;
+            padding: 20px;
+        }
+
+        nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration:dotted;
+          color: blue;
+            cursor: pointer;
+        }
+
+        /* Content area */
+        section {
+            width: 80%;
+            border: 2px solid black;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            border: 2px solid black;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function showContent(text) {
+            document.getElementById("content").innerHTML = text;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        LOGO WITH THE HEADER
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Navigation Links -->
+        <nav>
+            <b>NAVIGATION LINKS</b><br><br>
+            <a onclick="showContent('Home Page Content')">Home</a>
+            <a onclick="showContent('About Us Content')">About</a>
+            <a onclick="showContent('Services Content')">Services</a>
+            <a onclick="showContent('Contact Page Content')">Contact</a>
+        </nav>
+
+        <!-- Content Display -->
+        <section>
+            <p id="content">
+                CONTENT HAS TO BE DISPLAYED WHEN CLICKED ON THE NAVIGATION LINK
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        CONTACT DETAILS
+    </footer>
+
+</body>
+</html>

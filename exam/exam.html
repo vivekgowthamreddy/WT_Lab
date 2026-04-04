@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>      
+    <meta
+        charset="UTF-8"
+        http-equiv="X-UA-Compatible" 
+        content="IE=edge"          
+
+        >
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+    <title>Exam Page</title>      
+    <link rel="stylesheet" href="../styles/exam.css">      
+</head>
+<body>
+<table   cellpadding="10" cellspacing="0" >
+  <tr>
+    <th rowspan="2">Name</th>
+    <th colspan="2">Marks</th>
+  </tr>
+
+  <tr>
+    <th>Theory</th>
+    <th>Lab</th>
+  </tr>
+
+  <tr>
+    <td>Vivek</td>
+    <td>80</td>
+    <td>90</td>
+  </tr>
+</table>
+<center>
+<form action="submit.php" method="post" border="1">
+  <label>Name:</label>
+  <input type="text" name="name"><br><br>
+
+  <label>Email:</label>
+  <input type="email" name="email"><br><br>
+
+  <label>Password:</label>
+  <input type="password" name="password"><br><br>
+
+  <input type="submit" value="Register">
+</form>
+
+<form>
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text"></td>
+
+      <td>Email:</td>
+      <td><input type="email"></td>
+    </tr>
+
+    <tr>
+      <td colspan="4" align="center">
+        <input type="submit">
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .row label {
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .row input,
+        .row select,
+        .row textarea {
+            flex: 1;
+            padding: 6px;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        .buttons input {
+            padding: 8px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+
+    <form action="#" method="post">
+
+        <div class="row">
+            <label>Full Name:</label>
+            <input type="text" name="fullname" required>
+        </div>
+
+        <div class="row">
+            <label>Email:</label>
+            <input type="email" name="email">
+        </div>
+
+        <div class="row">
+            <label>Password:</label>
+            <input type="password" name="password">
+        </div>
+
+        <div class="row">
+            <label>Gender:</label>
+            <input type="radio" name="gender"> Male
+            <input type="radio" name="gender"> Female
+        </div>
+
+        <div class="row">
+            <label>Course:</label>
+            <select name="course">
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>MECH</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Skills:</label>
+            <input type="checkbox"> HTML
+            <input type="checkbox"> CSS
+            <input type="checkbox"> JavaScript
+        </div>
+
+        <div class="row">
+            <label>Address:</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <div class="row">
+            <label>Upload Resume:</label>
+            <input type="file">
+        </div>
+
+        <div class="buttons">
+            <input type="submit" value="Register">
+            <input type="reset" value="Clear">
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Form</title>
+</head>
+
+<body>
+
+<h2 align="center">Application Form</h2>
+
+<form>
+<table align="center" cellpadding="10" cellspacing="0">
+
+    <tr>
+        <td>First Name:</td>
+        <td><input type="text"></td>
+        <td>Last Name:</td>
+        <td><input type="text"></td>
+    </tr>
+
+    <tr>
+        <td>Date of Birth:</td>
+        <td><input type="date"></td>
+        <td>Age:</td>
+        <td><input type="number"></td>
+    </tr>
+
+    <tr>
+        <td>Gender:</td>
+        <td>
+            <select>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </td>
+        <td>Email Address:</td>
+        <td><input type="email"></td>
+    </tr>
+
+    <tr>
+        <td>Positions Available:</td>
+        <td colspan="3">
+            <input type="radio" name="pos"> Junior Developer
+            <input type="radio" name="pos"> Mid-level Developer
+            <input type="radio" name="pos"> Senior Developer
+        </td>
+    </tr>
+
+    <tr>
+        <td>Programming Languages:</td>
+        <td colspan="3">
+            <input type="checkbox"> Java
+            <input type="checkbox"> JavaScript
+            <input type="checkbox"> Python
+        </td>
+    </tr>
+
+    <tr>
+        <td>Password:</td>
+        <td><input type="password"></td>
+        <td>Confirm Password:</td>
+        <td><input type="password"></td>
+    </tr>
+
+    <tr>
+        <td colspan="4" align="center">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </td>
+    </tr>
+
+</table>
+</form>
+
+</body>
+</html>
+
+
+</center> 
+
+
+
+
+ 
+</body>
+</html>     

@@ -96,14 +96,10 @@ console.log(adminobject["role"]);     // bracket
 
 adminobject.role="System Admin";
 
-/* METHOD */
-
 adminobject.changerole=function(){
   this.role="Admin";
   return this.role;
 };
-
-/* EVENTS */
 
 document.querySelector(".dashboard").addEventListener("mouseover",function(){
   this.style.backgroundColor="#f1f5f9";

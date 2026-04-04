@@ -2,86 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Register - SSMS</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: "Segoe UI", system-ui, sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a, #f5f5f6);
+      background: #f8f9fc;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    .box {
-      background: linear-gradient(135deg,white,black);
-      width: 360px;
-      padding: 35px 30px;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-      color: white;
-    }
-
-    .box h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .box input {
+    .container {
       width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
+      max-width: 400px;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
       font-size: 14px;
     }
 
-    .box input::placeholder {
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #4f46e5;
+    }
+
+    .form-group input::placeholder {
       color: #94a3b8;
     }
 
-    .box button {
+    .btn {
       width: 100%;
-      margin-top: 25px;
       padding: 12px;
-      border-radius: 8px;
       border: none;
-      background: #22c55e;
-      color: #022c22;
+      border-radius: 8px;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    .box button:hover {
-      background: #16a34a;
+    .btn-primary {
+      background: #4f46e5;
       color: white;
-      transform: translateY(-1px);
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      background: #4338ca;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .toggle-link a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .toggle-link a:hover {
+      text-decoration: underline;
+    }
+
+    .form-header {
+      margin-bottom: 25px;
+    }
+
+    .form-header p {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-top: 8px;
     }
   </style>
 </head>
 
 <body>
-  <div class="box">
-    <h2>Login</h2>
+  <div class="container">
+    <!-- LOGIN FORM -->
+    <div class="form-box">
+      <div class="form-header">
+        <h2 class="form-title">Login</h2>
+        <p>Welcome back to SSMS</p>
+      </div>
 
-    <input type="email" id="email" placeholder="College Email">
-    <input type="password" id="password" placeholder="Password">
+      <form method="POST" action="login.php">
+        <div class="form-group">
+          <label for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" name="username" placeholder="Enter your username" required>
+        </div>
 
-    <button>Login</button>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+        </div>
 
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
 
+      <div class="toggle-link">
+        Don't have an account? <a href="register.php">Register here</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
