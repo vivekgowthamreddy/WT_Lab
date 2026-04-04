@@ -44,17 +44,17 @@
       <!-- Topbar -->
       <header class="topbar">
         <div class="topbar-left">
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..." id="search-input" />
         </div>
 
         <div class="topbar-right">
-          <div class="notification">🔔</div>
+          <div class="notification" id="notif-bell">🔔</div>
 
-          <div class="profile">
+          <div class="profile" id="profile-section">
             <div class="avatar">👤</div>
             <div class="user-info">
-              <span class="user-name">User Name</span>
-              <span class="user-role">Admin</span>
+              <span class="user-name" id="display-user-name">User Name</span>
+              <span class="user-role" id="display-user-role">Admin</span>
             </div>
           </div>
         </div>
@@ -65,8 +65,8 @@
 
         <!-- Welcome -->
         <section class="welcome">
-          <h1>Welcome back</h1>
-          <p>You successfully logged in</p>
+          <h1 id="welcome-msg">Welcome back</h1>
+          <p id="status-msg">You successfully logged in</p>
         </section>
 
         <!-- Stats -->
@@ -76,7 +76,7 @@
             <div class="stat-icon">👨‍🎓</div>
             <div class="stat-info">
               <span class="stat-label">Total Students</span>
-              <span class="stat-value">0</span>
+              <span class="stat-value" id="val-total">0</span>
             </div>
           </div>
 
@@ -84,7 +84,7 @@
             <div class="stat-icon">✅</div>
             <div class="stat-info">
               <span class="stat-label">Present Today</span>
-              <span class="stat-value">0</span>
+              <span class="stat-value" id="val-present">0</span>
             </div>
           </div>
 
@@ -92,7 +92,7 @@
             <div class="stat-icon">❌</div>
             <div class="stat-info">
               <span class="stat-label">Absent Today</span>
-              <span class="stat-value">0</span>
+              <span class="stat-value" id="val-absent">0</span>
             </div>
           </div>
 
@@ -100,7 +100,7 @@
             <div class="stat-icon">📚</div>
             <div class="stat-info">
               <span class="stat-label">Active Courses</span>
-              <span class="stat-value">0</span>
+              <span class="stat-value" id="val-courses">0</span>
             </div>
           </div>
 
@@ -108,45 +108,40 @@
 
         <!-- Chart + Activity -->
         <section class="dashboard-row">
-          <div class="attendance-chart">
-            <h3>Attendance Chart</h3>
-            <p>Chart visualization goes here</p>
+          <div class="attendance-chart" id="chart-area">
+            <h3>Attendance System</h3>
+            <p id="attendance-feedback">Manage daily student attendance below.</p>
           </div>
           <div class="recent-activity">
-            <h3>Recent Activity</h3>
-            <p>Activity feed goes here</p>
+            <h3>System Status</h3>
+            <p id="activity-log">System running nominally.</p>
           </div>
         </section>
 
         <!-- Quick Actions -->
         <section class="quick-actions">
           <div class="action-card">
-            <h4>Add Student</h4>
-            <button>Click Here</button>
+            <h4>Update Profile</h4>
+            <button id="btn-update-profile">Click Here</button>
           </div>
           <div class="action-card">
             <h4>Mark Attendance</h4>
-            <button>Click Here</button>
+            <button id="btn-mark-attendance">Click Here</button>
           </div>
           <div class="action-card">
             <h4>View Reports</h4>
-            <button>Click Here</button>
+            <button id="btn-view-reports">Click Here</button>
           </div>
         </section>
         
-
-        <table border="1" align="center">
-          
+        <table border="1" align="center" style="margin-top: 20px; width: 100%;">
           <tr>
-      
-            <th>subject</th>
-            <th>Total_classes</th>
+            <th>Subject</th>
+            <th>Total Classes</th>
             <th>Classes Attended</th>
-
           </tr>
           <tr>
-      
-            <td>web technologies</td>
+            <td>Web Technologies</td>
             <td>7</td>
             <td>5</td>
           </tr>
@@ -157,5 +152,7 @@
     </main>
 
   </div>
+
+  <script src="javascript(lab4).js"></script>
 </body>
-</html>   
+</html>
